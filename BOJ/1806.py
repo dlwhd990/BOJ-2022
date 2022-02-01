@@ -1,3 +1,5 @@
+#https://www.acmicpc.net/problem/1806
+#부분합 [Gold4]
 import sys
 I = sys.stdin.readline
 n,m = map(int,I().split())
