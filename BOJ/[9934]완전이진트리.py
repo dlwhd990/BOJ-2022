@@ -40,8 +40,6 @@ while idx < (2**k)-1:
         else:
             idx = idx*2+1
 
-
-
 r.append(2**k-1)
 
 for i in range(len(a)):
