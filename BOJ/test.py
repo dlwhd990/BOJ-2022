@@ -1,16 +1,15 @@
-a = input()
-t = [0]*26
+a = [[1,1,1,0,1,1,1],[0,0,1,0,0,1,0],[1,0,1,1,1,0,1],[1,0,1,1,0,1,1],[0,1,1,1,0,1,0],[1,1,0,1,0,1,1],[1,1,0,1,1,1,1],[1,0,1,0,0,1,0],[1,1,1,1,1,1,1],[1,1,1,1,0,1,1]]
+r = []
+for i in range(10):
+    tmp = []
+    for j in range(10):
+        cnt = 0
+        for p in range(7):
+            if a[i][p] != a[j][p]:
+                cnt += 1
 
-for i in a.lower():
-    t[ord(i)-97] += 1
+        tmp.append(cnt)
 
-for i in range(26):
-    t[i] = (t[i],chr(i+65))
+    r.append(tmp)
 
-t.sort(reverse=True)
-
-if t[1][0] == t[0][0]:
-    print("?")
-
-else:
-    print(t[0][1])
+print(r)
