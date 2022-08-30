@@ -1,3 +1,5 @@
-a = 0
-for i in range(10000000):
-    a += 1
+a = [1,3,3,5,5,76,78]
+b = [[]for _ in range(4)]
+
+b[0].extend(a)
+print(b)

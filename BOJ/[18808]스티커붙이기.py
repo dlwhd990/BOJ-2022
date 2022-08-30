@@ -5,25 +5,75 @@
 import sys
 I = sys.stdin.readline
 
+def turn(sticker):
+    tmp = []
+    for i,j in sticker:
+        tmp.append((j,-i))
+
+    return tmp
+
+
+
 n,m,k = map(int,I().split())
-notebook = [[0]*m for _ in range(n)]
+board = [[0] * m for _ in range(n)]
+s = []
+result = 0
 
 for _ in range(k):
     x,y = map(int,I().split())
-    sticker = []
+    tmp = []
+
     for _ in range(x):
-        sticker.append(list(map(int,I().split())))
+        tmp.append(list(map(int,I().split())))
 
-     for i in range(x):
-         for j in range(y):
-             if sticker[i][j] == 1:
+    sticker = []
+    for i in range(x):
+        for j in range(y):
+            if tmp[i][j] == 1:
+                sticker.append((i,j))
 
+    s.append(sticker)
 
-    for i in range(n):
-        if i+x > n:
-            break
-        for j in range(m):
-            if j+y > m:
+for t in range(k):
+    sticker = s[t] + []
+    attached = 0
+    for p in range(4):
+        for i in range(n):
+            for j in range(m):
+                check = 0
+                for dx, dy in sticker:
+                    nx = i + dx
+                    ny = j + dy
+
+                    if (nx > n - 1 or ny > m - 1 or nx < 0 or ny < 0) or board[nx][ny] == 1:
+                        check = 1
+                        break
+
+                if check == 0:
+                    for dx, dy in sticker:
+                        nx = i + dx
+                        ny = j + dy
+
+                        board[nx][ny] = 1
+                        attached = 1
+
+                    break
+
+            if attached == 1:
                 break
+
+        if attached == 1:
+            break
+
+        sticker = turn(sticker)
+
+
+for i in range(n):
+    for j in range(m):
+        if board[i][j] == 1:
+            result += 1
+
+print(result)
+
 
 
