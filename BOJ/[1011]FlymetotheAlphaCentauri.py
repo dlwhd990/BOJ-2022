@@ -1,3 +1,5 @@
+# Fly me to the Alpha Centauri [Gold 5]
+
 # a[지점] => 지점 까지의 누적합
 
 import sys
