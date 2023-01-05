@@ -1,3 +1,4 @@
+# 군사 이동 [Gold 3]
 import sys
 I = sys.stdin.readline
 
