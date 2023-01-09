@@ -1,3 +1,4 @@
+# RBY팡! [Gold 2]
 import sys
 I = sys.stdin.readline
 n = int(I())
