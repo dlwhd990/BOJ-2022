@@ -4,7 +4,7 @@ I = sys.stdin.readline
 
 n,m = map(int,I().split())
 a = []
-remain = 0
+result = 0
 time = 0
 dx = [-1,1,0,0]
 dy = [0,0,-1,1]
@@ -14,9 +14,9 @@ for _ in range(n):
 for i in range(n):
     for j in range(m):
         if a[i][j] == 1:
-            remain += 1
+            result += 1
 
-while remain > 0:
+while True:
     time += 1
     visited = [[0]*m for _ in range(n)]
     q = deque()
@@ -38,16 +38,15 @@ while remain > 0:
 
             elif a[nx][ny] == 1 and visited[nx][ny] == 0:
                 visited[nx][ny] = 1
-
-            elif a[nx][ny] == 1 and visited[nx][ny] == 1:
-                visited[nx][ny] = 2
                 target.append((nx,ny))
-
 
 
     for x,y in target:
         a[x][y] = 0
 
-    remain -= len(target)
+    if result-len(target) == 0:
+        break
+    result -= len(target)
 
 print(time)
+print(result)

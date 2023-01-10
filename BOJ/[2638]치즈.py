@@ -1,3 +1,4 @@
+# 치즈 [Gold 3]
 import sys
 from collections import deque
 I = sys.stdin.readline
