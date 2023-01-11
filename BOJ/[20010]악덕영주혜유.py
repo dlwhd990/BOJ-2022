@@ -1,3 +1,4 @@
+# 악덕 영주 혜유 [Gold 2]
 import sys
 import heapq as hq
 I = sys.stdin.readline
